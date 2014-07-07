@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<!-- Dao -->
+	<bean id="baseDao" class="com.oa.dao.impl.BaseDaoIocImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+
+	<bean id="signDao" class="com.oa.dao.impl.SignDaoImpl" parent="baseDao" />
+
+	<bean id="fileinfoDao" class="com.oa.dao.impl.FileinfoDaoImpl"
+		parent="baseDao" />
+
+	<bean id="filetypeinfoDao" class="com.oa.dao.impl.FiletypeinfoDaoImpl"
+		parent="baseDao" />
+
+	<bean id="userinfoDao" class="com.oa.dao.impl.UserDaoImpl" parent="baseDao" />
+
+	<bean id="roleDao" class="com.oa.dao.impl.RoleDaoImpl" parent="baseDao" />
+
+	<bean id="branchDao" class="com.oa.dao.impl.BranchDaoImpl" parent="baseDao" />
+
+	<bean id="scheduleDao" class="com.oa.dao.impl.ScheduleDaoImpl"
+		parent="baseDao" />
+
+	<bean id="precontractDao" class="com.oa.dao.impl.PrecontractDaoImpl"
+		parent="baseDao">
+	</bean>
+
+	<bean id="meetingDao" class="com.oa.dao.impl.MeetingDaoImpl"
+		parent="baseDao" />
+
+	<bean id="sysfunDao" class="com.oa.dao.impl.SysfunDaoImpl" parent="baseDao" />
+
+	<bean id="departDao" class="com.oa.dao.impl.DepartDaoImpl" parent="baseDao" />
+
+	<bean id="logDao" class="com.oa.dao.impl.LogDaoImpl" parent="baseDao" />
+
+	<bean id="rolerightDao" class="com.oa.dao.impl.RolerightDaoImpl"
+		parent="baseDao" />
+
+	<bean id="operateDao" class="com.oa.dao.impl.OperateDaoImpl"
+		parent="baseDao" />
+
+	<bean id="historyDao" class="com.oa.dao.impl.HistoryDaoImpl"
+		parent="baseDao" />
+
+	<bean id="workTimeDao" class="com.oa.dao.impl.WorkTimeDaoImpl"
+		parent="baseDao" />
+
+	<bean id="messageDao" class="com.oa.dao.impl.MessageDaoImpl"
+		parent="baseDao" />
+</beans>

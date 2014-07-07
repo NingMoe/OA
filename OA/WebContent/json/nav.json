@@ -1,0 +1,173 @@
+<<<<<<< .mine
+[{"attributes":{"url":""},"checked":null,"iconCls":"hr-manage","id":101,"pid":0,"ptext":null,"state":null,"text":"人事管理"},{"attributes":{"url":""},"checked":null,"iconCls":"schedule-manage","id":102,"pid":0,"ptext":null,"state":null,"text":"日程管理"},{"attributes":{"url":""},"checked":null,"iconCls":"document-manage","id":103,"pid":0,"ptext":null,"state":null,"text":"文档管理"},{"attributes":{"url":""},"checked":null,"iconCls":"email-manage","id":104,"pid":0,"ptext":null,"state":null,"text":"消息管理"},{"attributes":{"url":""},"checked":null,"iconCls":"sys-manage","id":105,"pid":0,"ptext":null,"state":null,"text":"系统管理"},{"attributes":{"url":""},"checked":null,"iconCls":"manul-manage","id":106,"pid":0,"ptext":null,"state":null,"text":"考勤管理"},{"attributes":{"url":"pages\/hr\/branchMgt.jsp"},"checked":"true","iconCls":"hr-derpart-manage","id":101001,"pid":101,"ptext":null,"state":"opened","text":"机构管理"},{"attributes":{"url":"pages\/hr\/departMgt.jsp"},"checked":"true","iconCls":"hr-branch-manage","id":101002,"pid":101,"ptext":null,"state":"opened","text":"部门管理"},{"attributes":{"url":"pages\/hr\/employeeMgt.jsp"},"checked":"true","iconCls":"hr-user-manage","id":101003,"pid":101,"ptext":null,"state":"opened","text":"员工管理"},{"attributes":{"url":"pages\/schedule\/mySchedule.jsp"},"checked":"true","iconCls":"schedule-depart-manage","id":102001,"pid":102,"ptext":null,"state":"opened","text":"我的日程"},{"attributes":{"url":"pages\/schedule\/departSchedule.jsp"},"checked":"true","iconCls":"schedule-my-manage","id":102002,"pid":102,"ptext":null,"state":"opened","text":"部门日程"},{"attributes":{"url":"pages\/schedule\/myNote.jsp"},"checked":"true","iconCls":"schedule-note-manage","id":102003,"pid":102,"ptext":null,"state":"opened","text":"我的便签"},{"attributes":{"url":""},"checked":"true","iconCls":"document-manage","id":103001,"pid":103,"ptext":null,"state":"opened","text":"文档管理"},{"attributes":{"url":""},"checked":"true","iconCls":"recycle-bin","id":103002,"pid":103,"ptext":null,"state":"opened","text":"回收站"},{"attributes":{"url":""},"checked":"true","iconCls":"document-search","id":103003,"pid":103,"ptext":null,"state":"opened","text":"文件搜索"},{"attributes":{"url":""},"checked":"true","iconCls":"email-manage","id":104001,"pid":104,"ptext":null,"state":"opened","text":"消息传递"},{"attributes":{"url":""},"checked":"true","iconCls":"email-email-manage","id":104002,"pid":104,"ptext":null,"state":"opened","text":"信箱"},{"attributes":{"url":"pages\/sm\/roleManage.jsp"},"checked":"true","iconCls":"role-manage","id":105001,"pid":105,"ptext":null,"state":"opened","text":"角色管理"},{"attributes":{"url":"pages\/sm\/loginLog.jsp"},"checked":"true","iconCls":"login-log","id":105002,"pid":105,"ptext":null,"state":"opened","text":"登录日志"},{"attributes":{"url":"pages\/sm\/OperateLog.jsp"},"checked":"true","iconCls":"oper-log","id":105003,"pid":105,"ptext":null,"state":"opened","text":"操作日志"},{"attributes":{"url":""},"checked":"true","iconCls":"menu-sort","id":105004,"pid":105,"ptext":null,"state":"opened","text":"菜单排序"},{"attributes":{"url":"search.jsp"},"checked":"true","iconCls":"manul-hostory-manage","id":106001,"pid":106,"ptext":null,"state":"opened","text":"考勤历史记录查询"},{"attributes":{"url":""},"checked":"true","iconCls":"manul-census-manage","id":106002,"pid":106,"ptext":null,"state":"opened","text":"考勤统计"},{"attributes":{"url":"manu.jsp"},"checked":"true","iconCls":"manul-out-input-manage","id":106003,"pid":106,"ptext":null,"state":"opened","text":"签到、签退"}]=======
+[
+	{
+		"id": 11,
+		"text": "人事管理",
+		"state": "opened",
+		"iconCls": "hr-manage",
+		"children": [
+			{
+				"id": 111,
+				"text": "机构管理",
+				"iconCls": "hr-derpart-manage",
+				"attributes": {
+					"url": "pages/hr/branchMgt.jsp"
+				}
+			}, {
+				"id": 112,
+				"text": "部门管理",
+				"iconCls": "hr-branch-manage",
+				"attributes": {
+					"url": "pages/hr/departMgt.jsp"
+				}
+			}, {
+				"id": 113,
+				"text": "员工管理",
+				"iconCls": "hr-user-manage",
+				"attributes": {
+					"url": "pages/hr/employeeMgt.jsp"
+				}
+			}
+		]
+	}, {
+		"id": 12,
+		"text": "日程管理",
+		"state": "opened",
+		"iconCls": "schedule-manage",
+		"children": [
+			{
+				"id": 121,
+				"text": "我的日程",
+				"iconCls": "schedule-depart-manage",
+				"attributes": {
+					"url": "pages/schedule/mySchedule.jsp"
+				}
+			}, {
+				"id": 122,
+				"text": "部门日程",
+				"iconCls": "schedule-my-manage",
+				"attributes": {
+					"url": "pages/schedule/departSchedule.jsp"
+				}
+			}, {
+				"id": 123,
+				"text": "我的便签",
+				"iconCls": "schedule-note-manage",
+				"attributes": {
+					"url": "pages/schedule/myNote.jsp"
+				}
+			}
+		]
+	}, {
+		"id": 13,
+		"text": "文档管理",
+		"state": "opened",
+		"iconCls": "document-manage",
+		"children": [
+			{
+				"id": 131,
+				"iconCls": "document-manage",
+				"text": "文档管理",
+				"attributes": {
+					"url": "pages/doc/documentMgt.jsp"
+				}
+			}, {
+				"id": 132,
+				"iconCls": "recycle-bin",
+				"text": "回收站",
+				"attributes": {
+					"url": "pages/doc/recycle.jsp"
+				}
+			}, {
+				"id": 133,
+				"iconCls": "document-search",
+				"text": "文件搜索",
+				"attributes": {
+					"url": "pages/doc/searchDoc.jsp"
+				}
+			}
+		]
+	}, {
+		"id": 14,
+		"text": "消息管理",
+		"state": "opened",
+		"iconCls": "email-manage",
+		"children": [
+			{
+				"id": 141,
+				"text": "消息管理",
+				"iconCls": "email-manage",
+				"attributes": {
+					"url": "pages/mm/messageShow.jsp"
+				}
+			}, {
+				"id": 142,
+				"iconCls": "email-email-manage",
+				"text": "信箱"
+			}
+		]
+	}, {
+		"id": 15,
+		"text": "系统管理",
+		"iconCls": "sys-manage",
+		"state": "opened",
+		"children": [
+			{
+				"id": 151,
+				"text": "角色管理",
+				"iconCls": "role-manage",
+				"attributes": {
+					"url": "pages/sm/roleManage.jsp"
+				}
+			}, {
+				"id": 152,
+				"text": "登录日志",
+				"iconCls": "login-log",
+				"attributes": {
+					"url": "pages/sm/loginLog.jsp"
+				}
+			}, {
+				"id": 153,
+				"text": "操作日志",
+				"iconCls": "oper-log",
+				"attributes": {
+					"url": "pages/sm/OperateLog.jsp"
+				}
+			}, {
+				"id": 154,
+				"iconCls": "menu-sort",
+				"text": "菜单排序"
+			}
+		]
+	}, {
+		"id": 16,
+		"text": "考勤管理",
+		"iconCls": "manul-manage",
+		"state": "opened",
+		"children": [
+			{
+				"id": 161,
+				"text": "签到、签退",
+				"iconCls": "manul-out-input-manage",
+				"attributes": {
+					"url": "pages/tc/manu.jsp"
+				}
+			}, {
+				"id": 162,
+				"iconCls": "manul-census-manage",
+				"text": "考勤统计",
+				"attributes": {
+					"url": "pages/tc/stat.jsp"
+				}
+			}, {
+				"id": 162,
+				"iconCls": "manul-hostory-manage",
+				"text": "考勤历史记录查询",
+				"attributes": {
+					"url": "pages/tc/search.jsp"
+				}
+			}
+		]
+	}
+]>>>>>>> .r521

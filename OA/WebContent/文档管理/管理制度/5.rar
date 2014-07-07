@@ -1,0 +1,61 @@
+虚拟机密码说明
+
+第一学期虚拟机
+
+Windows 7 x86     账户名：administrator　密码：空
+
+Win2008a　        账户名：administrator　密码：win2008a
+
+Win2008b　        账户名：administrator　密码：win2008b 
+
+Win2008c　        账户名：administrator　密码：win2008c 
+
+win2003e+DC       账户名：administrator　密码：win2003e?
+
+WinXP             账户名：administrator　密码：winxp
+
+ 
+
+第二学期虚拟机 
+
+rhel5              账户名：root 密码：6个空格
+
+rhel51             账户名：root 密码：123456 
+
+rhel52             账户名：root 密码：123456 
+
+rhel53             账户名：root 密码：123456
+
+Sql2005+Vs2008     账户名：administrator　密码：空
+
+winxp1+outlook2007 账户名：administrator　密码：winxp1?
+
+EdgeServer1        账户名：administrator  密码：edgeserver1?
+
+Mailserver1        账户名：administrator　密码：mailserver1?
+
+MailClient1        账户名：administrator  密码：mailclient1?
+
+SQL Server 2005 A            账户名：administrator 密码：空
+
+SQL Server 2005 B            账户名：administrator 密码：空
+ 
+      
+
+通用虚拟机
+
+win2003a  账户名：administrator　密码：win2003a?
+
+win2003b  账户名：administrator　密码：win2003b?
+
+win2003c  账户名：administrator　密码：win2003c?
+
+win2003d  账户名：administrator　密码：win2003d?
+
+winxp1    账户名：administrator　密码：winxp1?
+
+winxp2    账户名：administrator　密码：winxp2?
+
+winxp3    账户名：administrator　密码：winxp3?
+
+winxp4    账户名：administrator　密码：winxp4?

@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CSS Document */
+.thems-icon-black {
+	background: url('../Images/icons/black.png') no-repeat center center;
+}
+.thems-icon-default {
+	background: url('../Images/icons/default.png') no-repeat center center;
+}
+.thems-icon-gray {
+	background: url('../Images/icons/gray.png') no-repeat center center;
+}
+.thems-icon-metro {
+	background: url('../Images/icons/metro.png') no-repeat center center;
+}
+.thems-icon-bootstrap {
+	background: url('../Images/icons/bootstrap.png') no-repeat center center;
+}
+.thems-icon-metro-blue {
+	background: url('../Images/icons/metro-blue.png') no-repeat center center;
+}
+.thems-icon-metro-gray {
+	background: url('../Images/icons/metro-gray.png') no-repeat center center;
+}
+.thems-icon-metro-green {
+	background: url('../Images/icons/metro-green.png') no-repeat center center;
+}
+.thems-icon-metro-orange {
+	background: url('../Images/icons/metro-orange.png') no-repeat center center;
+}
+.thems-icon-metro-red {
+	background: url('../Images/icons/metro-red.png') no-repeat center center;
+}
+.thems-icon-ui-cupertino {
+	background: url('../Images/icons/ui-cupertino.png') no-repeat center center;
+}
+.thems-icon-ui-dark-hive {
+	background: url('../Images/icons/ui-dark-hive.png') no-repeat center center;
+}
+.thems-icon-ui-pepper-grinder {
+	background: url('../Images/icons/ui-pepper-grinder.png') no-repeat center center;
+}
+.thems-icon-ui-sunny {
+	background: url('../Images/icons/ui-sunny.png') no-repeat center center;
+}
+
+
+.png{
+	background: url('../Images/icons/file_type/png.ico') no-repeat center center;
+}
+.gif{
+	background: url('../Images/icons/file_type/png.ico') no-repeat center center;
+}
+.pdf{
+	background: url('../Images/icons/file_type/pdf.ico') no-repeat center center;
+}
+.jpg{
+	background: url('../Images/icons/file_type/jpg.ico') no-repeat center center;
+}
+.jpeg{
+	background: url('../Images/icons/file_type/jpg.ico') no-repeat center center;
+}
+.ppt{
+	background: url('../Images/icons/file_type/ppt.ico') no-repeat center center;
+}
+.doc{
+	background: url('../Images/icons/file_type/word.ico') no-repeat center center;
+}
+.xls{
+	background: url('../Images/icons/file_type/xls.ico') no-repeat center center;
+}
+.pptx{
+	background: url('../Images/icons/file_type/pptx.ico') no-repeat center center;
+}
+.docx{
+	background: url('../Images/icons/file_type/docx.ico') no-repeat center center;
+}
+.xlsx{
+	background: url('../Images/icons/file_type/xlsx.ico') no-repeat center center;
+}
+.rar{
+	background: url('../Images/icons/file_type/rar.ico') no-repeat center center;
+}
+.txt{
+	background: url('../Images/icons/file_type/txt.ico') no-repeat center center;
+}
+.unknow{
+	background: url('../Images/icons/file_type/unknown.ico') no-repeat center center;
+}
+.folder{
+	background: url('../Images/icons/file_type/folder.ico') no-repeat center center;
+}
+.vsd{
+	background: url('../Images/icons/file_type/vsd.ico') no-repeat center center;
+}
+.bmp{
+	background: url('../Images/icons/file_type/bmp.ico') no-repeat center center;
+}
+
+.cai-icon-add{
+	background: url('../Images/tsai/add.png') no-repeat center center;
+}
+.cai-icon-remove{
+	background: url('../Images/tsai/remove.png') no-repeat center center;
+}
+.cai-icon-cancel{
+	background: url('../Images/tsai/cancel.png') no-repeat center center;
+}
+.cai-icon-reload{
+	background: url('../Images/tsai/reload.png') no-repeat center center;
+}
+.cai-icon-save{
+	background: url('../Images/tsai/save.png') no-repeat center center;
+}
+.cai-icon-edit{
+	background: url('../Images/tsai/edit.png') no-repeat center center;
+}
+/* .icon-search{
+	background: url('../Images/tsai/search.ico') no-repeat center center;
+} */
+.cai-icon-revert{
+	background: url('../Images/tsai/revert.png') no-repeat center center;
+}
+.cai-icon-recycle-clean{
+	background: url('../Images/tsai/recycle-clean.png') no-repeat center center;
+}
+.cai-bg-uploadify{
+	background: url('../Images/tsai/uploadify_bg.png');
+}
+
+.icon-message{
+	background: url('../Images/icons/message.png') no-repeat center center;
+}
+.icon-warning{
+	background: url('../Images/icons/warning.png') no-repeat center center;
+}
+.icon-info{
+	background: url('../Images/icons/message.png') no-repeat center center;
+}
+.icon-error{
+	background: url('../Images/error.png') no-repeat center center;
+}
+.icon-filter{
+	background: url('../Images/filter.png') no-repeat center center;
+}

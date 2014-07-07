@@ -1,0 +1,232 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+
+
+	<package name="mySchedule" namespace="/mySchedule"
+		extends="struts-default,json-default">
+		<default-class-ref class="scheduleAction" />
+
+		<action name="precontractAction" class="precontractAction">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime
+				</param>
+			</result>
+		</action>
+		<action name="loadDates" method="loadDates">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+	</package>
+
+
+	<package name="departSchedule" namespace="/departSchedule"
+		extends="struts-default,json-default">
+		<default-class-ref class="scheduleAction" />
+
+		<action name="loadBranch" method="loadBranch">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+		<action name="saveOrUpdate" method="saveOrUpdate">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="showPage" method="showPage">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="deleteObj" method="deleteObj">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="loadDepart" method="loadDepart">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="meetingAction" class="meetingAction">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					meetingInfo\[\d+\]\.meetingId,
+					meetingInfo\[\d+\]\.meetingName
+				</param>
+			</result>
+		</action>
+
+		<action name="precontractAction" class="precontractAction">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime
+				</param>
+			</result>
+		</action>
+
+	</package>
+
+
+	<package name="sysfun" namespace="/sysfun" extends="struts-default,json-default">
+
+		<default-class-ref class="sysfunAction" />
+
+		<action name="getAllTreeNode" method="getAllTreeNode">
+			<result name="success" type="json">
+				<param name="root">trees</param>
+			</result>
+		</action>
+
+
+
+	</package>
+</struts> 

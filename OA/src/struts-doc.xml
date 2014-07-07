@@ -1,0 +1,133 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 文档管理 -->
+	<package name="doc" namespace="/doc" extends="json-default">
+
+		<default-class-ref class="fileinfoAction" />
+		
+		<global-results>
+			<result name="file404">/error/500_file404.jsp</result>
+		</global-results>
+
+		<action name="showPage" method="showPage"></action>
+
+		<action name="add" method="add"></action>
+
+		<action name="remove" method="remove">
+			<result type="json"><param name="root">json</param></result>
+		</action>
+		
+		<action name="mkdir" method="mkdir"></action>
+
+		<action name="update" method="update"></action>
+
+		<action name="showTree" method="showTree">
+			<result type="json">
+				<param name="root">dirTree</param>
+			</result>
+		</action>
+
+		<action name="showAll" method="showAll">
+			<result type="json">
+				<param name="root">fileTree</param>
+			</result>
+		</action>
+		
+		<action name="doSearch" method="doSearch">
+			<result type="json">
+				<param name="root">fileTree</param>
+			</result>
+		</action>
+		
+		<action name="putRecycle" method="putRecycle">
+			<result type="json">
+				<param name="root">json</param>
+			</result>
+		</action>
+		
+		<action name="upload" method="upload">
+			<!-- <result></result>
+			<result name="none"></result> -->
+			<result name="input">/pages/error.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">50*1024*1024</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="uploadAvatar" method="uploadAvatar">
+			<result></result>
+			<result name="input">/pages/error.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">50*1024*1024</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="download"	method="download">
+			<exception-mapping exception="java.lang.IllegalArgumentException" result="file404" />
+			<result name="success" type="stream">
+				<param name="inputName">inputStream</param><!--文件对应的流对象 -->
+				<param name="contentDisposition">attachment;filename="${fileinfo.fileName}"</param><!--发送给客户端的文件名，需要注意中文乱码问题 -->
+				<param name="contentType">application/octet-stream</param><!--文件类型，application/octet-stream是不限制类型 -->
+				<param name="bufferSize">1024</param><!--缓冲区大小 -->
+			</result>
+		</action>
+		
+		<action name="showAllType" class="filetypeAction" method="showAll">
+			<result type="json">
+				<param name="root">baseList</param>
+				<param name="includeProperties">
+					\[\d+\]\.fileTypeId,
+					\[\d+\]\.fileTypeName
+				</param>
+			</result>
+		</action>
+		
+		<action name="fileOwners" method="fileOwners">
+			<result type="json">
+				<param name="root">fileOwners</param>
+				<param name="includeProperties">
+					\[\d+\]\.userId,
+					\[\d+\]\.userName
+				</param>
+			</result>
+		</action>
+		
+	</package>
+	
+	<!-- 回收站 -->
+	<package name="recycle" namespace="/recycle" extends="json-default">
+		
+		<default-class-ref class="fileinfoAction" />
+		
+		<action name="revert" method="revert">
+			<result type="json">
+				<param name="root">json</param>
+			</result>
+		</action>
+		
+		<action name="revertAll" method="revertAll">
+			<result type="json">
+				<param name="root">json</param>
+			</result>
+		</action>
+		
+		<action name="showRecycle" method="showRecycle">
+			<result type="json">
+				<param name="root">fileTree</param>
+			</result>
+		</action>
+		
+		<action name="showRecycleDir" method="showRecycleDir">
+			<result type="json">
+				<param name="root">dirTree</param>
+			</result>
+		</action>
+	</package>
+
+</struts>
