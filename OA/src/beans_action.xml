@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- 此action基类,已实现基本操作,按需继承 -->
+	<bean id="baseAction2" class="com.oa.action.impl.BaseAction2"
+		abstract="true">
+	</bean>
+	<!-- 为easyui实现良好交互的action基类,继承自baseAction2 -->
+	<bean id="action4easyui" class="com.oa.action.impl.Action4easyui"
+		parent="baseAction2" abstract="true"></bean>
+
+	<bean id="signAction" class="com.oa.action.impl.SignAction">
+		<property name="signService" ref="signService"></property>
+		<property name="departService" ref="departService" />
+		<property name="userService" ref="userinfoService" />
+	</bean>
+
+	<bean id="userinfoAction" class="com.oa.action.impl.UserinfoAction"
+		parent="action4easyui">
+		<property name="baseService" ref="userinfoService" />
+		<property name="logService" ref="logService"></property>
+		<property name="departService" ref="departService" />
+	</bean>
+
+	<bean id="branchAction" class="com.oa.action.impl.BranchAction"
+		parent="action4easyui">
+		<property name="baseService" ref="branchService" />
+	</bean>
+	
+	<bean id="filetypeAction" class="com.oa.action.impl.FiletypeAction"
+		parent="action4easyui">
+		<property name="baseService" ref="filetypeService" />
+	</bean>
+
+	<bean id="fileinfoAction" class="com.oa.action.impl.FileinfoAction"
+		parent="action4easyui" scope="prototype">
+		<property name="baseService" ref="fileinfoService" />
+		<property name="fileService" ref="fileinfoService" />
+		<property name="typeService" ref="filetypeService"></property>
+	</bean>
+
+	<bean id="scheduleAction" class="com.oa.action.impl.ScheduleAction"
+		parent="action4easyui">
+		<property name="baseService" ref="scheduleService" />
+		<property name="scheduleService" ref="scheduleService" />
+		<property name="branchService" ref="branchService" />
+		<property name="departService" ref="departService" />
+		<property name="precontractService" ref="precontractService" />
+		<property name="userService" ref="userinfoService" />
+	</bean>
+
+	<bean id="precontractAction" class="com.oa.action.impl.PrecontractAction"
+		parent="action4easyui">
+		<property name="baseService" ref="precontractService" />
+		<property name="precontractService" ref="precontractService" />
+	</bean>
+
+	<bean id="sysfunAction" class="com.oa.action.impl.SysfunAction"
+		parent="action4easyui">
+		<property name="baseService" ref="sysfunService" />
+		<property name="sysfunService" ref="sysfunService" />
+	</bean>
+
+	<bean id="meetingAction" class="com.oa.action.impl.MeetingAction"
+		parent="action4easyui">
+		<property name="baseService" ref="meetingService" />
+	</bean>
+
+	<bean id="departAction" class="com.oa.action.impl.DepartAction"
+		parent="action4easyui">
+		<property name="baseService" ref="departService" />
+	</bean>
+
+	<bean id="roleAction" class="com.oa.action.impl.RoleAction"
+		parent="action4easyui">
+		<property name="baseService" ref="roleService" />
+	</bean>
+
+	<bean id="logAction" class="com.oa.action.impl.LogAction" parent="action4easyui">
+		<property name="baseService" ref="logService" />
+	</bean>
+
+	<bean id="operateAction" class="com.oa.action.impl.OperateAction"
+		parent="action4easyui">
+		<property name="baseService" ref="operateService" />
+	</bean>
+
+	<bean id="historyAction" class="com.oa.action.impl.HistoryAction"
+		parent="action4easyui">
+		<property name="baseService" ref="historyService" />
+		<property name="branchService" ref="branchService" />
+		<property name="departService" ref="departService" />
+	</bean>
+	
+	<bean id="workTimeAction" class="com.oa.action.impl.WorkTimeAction"
+		parent="action4easyui">
+		<property name="baseService" ref="workTimeService" />
+	</bean>
+	
+	<bean id="messageAction" class="com.oa.action.impl.MessageAction"
+		parent="action4easyui">
+		<property name="baseService" ref="messageService" />
+	</bean>
+</beans>

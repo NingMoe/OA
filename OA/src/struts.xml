@@ -1,0 +1,32 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="default" namespace="/" extends="struts-default,json-default">
+
+		<action name="login" class="userinfoAction" method="Login">
+			<result name="success">main.jsp</result>
+			<result name="input">index.jsp</result>
+
+		</action>
+
+
+	</package>
+	<!-- 人事管理 -->
+	<include file="struts-hr.xml"></include>
+
+	<!-- 文档管理 -->
+	<include file="struts-doc.xml"></include>
+
+	<!-- 朱义传 -->
+	<include file="struts-zhu.xml"></include>
+
+	<!-- 高雅 -->
+	<include file="struts-gy.xml"></include>
+</struts>

@@ -1,0 +1,173 @@
+.icon-blank {
+	background: url('icons/blank.gif') no-repeat center center;
+}
+.icon-aa {
+	background: url('icons/aa.png') no-repeat center center;
+}
+.icon-ss {
+	background: url('icons/ss.png') no-repeat center center;
+}
+.icon-edit_add {
+	background: url('icons/edit_add.png') no-repeat center center;
+}
+.icon-add {
+	background: url('icons/edit_add.png') no-repeat center center;
+}
+.icon-edit {
+	background: url('icons/pencil.png') no-repeat center center;
+}
+.icon-remove {
+	background: url('icons/edit_remove.png') no-repeat center center;
+}
+.icon-save {
+	background: url('icons/filesave.png') no-repeat center center;
+}
+.icon-cut {
+	background: url('icons/cut.png') no-repeat center center;
+}
+.icon-ok {
+	background: url('icons/ok.png') no-repeat center center;
+}
+.icon-no {
+	background: url('icons/no.png') no-repeat center center;
+}
+.icon-cancel {
+	background: url('icons/cancel.png') no-repeat center center;
+}
+.icon-reload {
+	background: url('icons/reload.png') no-repeat center center;
+}
+.icon-search {
+	background: url('icons/search.png') no-repeat center center;
+}
+.icon-print {
+	background: url('icons/print.png') no-repeat center center;
+}
+.icon-help {
+	background: url('icons/help.png') no-repeat center center;
+}
+.icon-undo {
+	background: url('icons/undo.png') no-repeat center center;
+}
+.icon-redo {
+	background: url('icons/redo.png') no-repeat center center;
+}
+.icon-back {
+	background: url('icons/back.png') no-repeat center center;
+}
+.icon-sum {
+	background: url('icons/sum.png') no-repeat center center;
+}
+.icon-tip {
+	background: url('icons/tip.png') no-repeat center center;
+}
+.icon-filter {
+	background: url('icons/filter.png') no-repeat center center;
+}
+
+.icon-mini-add {
+	background: url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit {
+	background: url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh {
+	background: url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture {
+	background: url('icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart {
+	background: url('icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes {
+	background: url('icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart {
+	background: url('icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart {
+	background: url('icons/large_chart.png') no-repeat center center;
+}
+.icon-rainbow {
+	background: url('icons/rainbow.png') no-repeat center center;
+}
+.icon-userLocked{
+	background: url('icons/userLocked.jpg') no-repeat center center;
+}
+.hr-manage {
+	background: url('icons/group.png') no-repeat center center;
+}
+.hr-derpart-manage {
+	background: url('icons/house.png') no-repeat center center;
+}
+.hr-branch-manage {
+	background: url('icons/html.png') no-repeat center center;
+}
+.hr-user-manage {
+	background: url('icons/user.png') no-repeat center center;
+}
+.schedule-manage {
+	background: url('icons/date.png') no-repeat center center;
+}
+.schedule-depart-manage {
+	background: url('icons/date_link.png') no-repeat center center;
+}
+.schedule-my-manage {
+	background: url('icons/time.png') no-repeat center center;
+}
+.schedule-note-manage {
+	background: url('icons/note_edit.png') no-repeat center center;
+}
+.document-manage {
+	background: url('icons/folder_wrench.png') no-repeat center center;
+}
+.recycle-bin {
+	background: url('icons/folder_database.png') no-repeat center center;
+}
+.document-search {
+	background: url('icons/folder_magnify.png') no-repeat center center;
+}
+.email-manage {
+	background: url('icons/email.png') no-repeat center center;
+}
+.email-email-manage {
+	background: url('icons/email_open.png') no-repeat center center;
+}
+.sys-manage {
+	background: url('icons/wrench_orange.png') no-repeat center center;
+}
+.role-manage {
+	background: url('icons/user_suit.png') no-repeat center center;
+}
+.login-log {
+	background: url('icons/table_row_delete.png') no-repeat center center;
+}
+.oper-log {
+	background: url('icons/table_row_insert.png') no-repeat center center;
+}
+.menu-sort {
+	background: url('icons/text_padding_left.png') no-repeat center center;
+}
+.manul-manage {
+	background: url('icons/application_view_icons.png') no-repeat center center;
+}
+.manul-out-input-manage {
+	background: url('icons/arrow_switch.png') no-repeat center center;
+}
+.manul-census-manage {
+	background: url('icons/shape_align_bottom.png') no-repeat center center;
+}
+.manul-hostory-manage {
+	background: url('icons/arrow_rotate_anticlockwise.png') no-repeat center center;
+}
+.icon-remove-recycle{
+	background: url('icons/recycle.png') no-repeat center center;
+}
+.icon-upload{
+	background: url('icons/upload.png') no-repeat center center;
+}
+.icon-download{
+	background: url('icons/download.png') no-repeat center center;
+}

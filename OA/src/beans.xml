@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="classpath:jdbc.properties" />
+	</bean>
+	<!-- 连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${jdbc.driverClass}" />
+		<property name="jdbcUrl" value="${jdbc.jdbcUrl}" />
+		<property name="user" value="${jdbc.user}" />
+		<property name="password" value="${jdbc.password}" />
+
+		<property name="minPoolSize" value="2" />
+		<property name="maxPoolSize" value="20" />
+		<property name="maxIdleTime" value="1800" />
+		<property name="acquireIncrement" value="2" />
+		<property name="maxStatements" value="0" />
+		<property name="initialPoolSize" value="3" />
+		<property name="idleConnectionTestPeriod" value="1800" />
+		<property name="acquireRetryAttempts" value="30" />
+		<property name="breakAfterAcquireFailure" value="true" />
+		<property name="testConnectionOnCheckout" value="false" />
+
+	</bean>
+
+
+	<!-- sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<!-- <value>com/zhu/entity/Goods.hbm.xml</value> -->
+				<value>com/oa/entity/Accessoryfile.hbm.xml</value>
+				<value>com/oa/entity/Branchinfo.hbm.xml</value>
+				<value>com/oa/entity/Departinfo.hbm.xml</value>
+				<value>com/oa/entity/Fileinfo.hbm.xml</value>
+				<value>com/oa/entity/Filetypeinfo.hbm.xml</value>
+				<value>com/oa/entity/Loginlog.hbm.xml</value>
+				<value>com/oa/entity/Manualsign.hbm.xml</value>
+				<value>com/oa/entity/Meetinginfo.hbm.xml</value>
+				<value>com/oa/entity/Message.hbm.xml</value>
+				<value>com/oa/entity/Messagetouser.hbm.xml</value>
+				<value>com/oa/entity/Messagetype.hbm.xml</value>
+				<value>com/oa/entity/Mynote.hbm.xml</value>
+				<value>com/oa/entity/Operatelog.hbm.xml</value>
+				<value>com/oa/entity/Precontract.hbm.xml</value>
+				<value>com/oa/entity/Readcommonmessage.hbm.xml</value>
+				<value>com/oa/entity/Roleinfo.hbm.xml</value>
+				<value>com/oa/entity/Roleright.hbm.xml</value>
+				<value>com/oa/entity/Schedule.hbm.xml</value>
+				<value>com/oa/entity/Sysfun.hbm.xml</value>
+				<value>com/oa/entity/Userinfo.hbm.xml</value>
+				<value>com/oa/entity/Userstate.hbm.xml</value>
+				<value>com/oa/entity/Worktime.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					${jdbc.dialect}
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+	<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
+			</props>
+		</property>
+		<!--<property name="hibernateProperties"> <props> <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext 
+			</prop> <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+			<prop key="hibernate.show_sql">true</prop> </props> hibernate.dialect=org.hibernate.dialect.MySQLDialect 
+			hibernate.show_sql=true hibernate.current_session_context_class=org.springframework.orm.hibernate4.SpringSessionContext 
+			</property> -->
+	</bean>
+
+
+	<!-- Hibernate transaction -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+		<!-- <property name="dataSource" ref="dataSource"></property> -->
+	</bean>
+
+
+	<!-- AOP -->
+	<aop:config proxy-target-class="true">
+
+		<aop:pointcut id="action" expression="execution(* com.oa.service..*(..))" />
+
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="action" />
+	</aop:config>
+
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="delete*" propagation="REQUIRED"
+				rollback-for="Exception" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="get*" propagation="REQUIRED" />
+		</tx:attributes>
+	</tx:advice>
+</beans>

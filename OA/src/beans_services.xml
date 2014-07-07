@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.5.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<!-- Services -->
+	<bean id="baseService" class="com.oa.service.impl.BaseServiceImpl">
+		<property name="dao" ref="baseDao"></property>
+	</bean>
+
+	<bean id="userinfoService" class="com.oa.service.impl.UserinfoServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="userinfoDao"></property>
+	</bean>
+
+	<bean id="fileinfoService" class="com.oa.service.impl.FileinfoServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="fileinfoDao"></property>
+		<property name="filetypeService" ref="filetypeService"></property>
+	</bean>
+	
+	<bean id="filetypeService" class="com.oa.service.impl.FileTypeServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="filetypeinfoDao"></property>
+	</bean>
+
+	<bean id="signService" class="com.oa.service.impl.SignServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="signDao"></property>
+	</bean>
+
+	<bean id="branchService" class="com.oa.service.impl.BranchServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="branchDao"></property>
+	</bean>
+
+	<bean id="sysfunService" class="com.oa.service.impl.SysfunServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="sysfunDao"></property>
+		<property name="sysfunDao" ref="sysfunDao"></property>
+		<property name="roleDao" ref="roleDao"></property>
+		<property name="rolerightDao" ref="rolerightDao"></property>
+	</bean>
+
+	<bean id="scheduleService" class="com.oa.service.impl.ScheduleServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="scheduleDao"></property>
+		<property name="scheduleDao" ref="scheduleDao"></property>
+		<property name="userDao" ref="userinfoDao"></property>
+	</bean>
+
+	<bean id="precontractService" class="com.oa.service.impl.PrecontractServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="precontractDao"></property>
+		<property name="precontractDao" ref="precontractDao"></property>
+		<property name="scheduleDao" ref="scheduleDao"></property>
+	</bean>
+
+
+	<bean id="departService" class="com.oa.service.impl.DepartServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="departDao"></property>
+	</bean>
+	<bean id="meetingService" class="com.oa.service.impl.MeetingServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="meetingDao"></property>
+	</bean>
+
+
+	<bean id="roleService" class="com.oa.service.impl.RoleServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="roleDao"></property>
+	</bean>
+
+	<bean id="logService" class="com.oa.service.impl.LogServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="logDao"></property>
+	</bean>
+
+	<bean id="operateService" class="com.oa.service.impl.OperateServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="operateDao"></property>
+	</bean>
+	
+	<bean id="historyService" class="com.oa.service.impl.HistoryServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="historyDao"></property>
+	</bean>
+	
+	<bean id="workTimeService" class="com.oa.service.impl.WorkTimeServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="workTimeDao"></property>
+	</bean>
+	
+	<bean id="messageService" class="com.oa.service.impl.MessageServiceImpl"
+		parent="baseService">
+		<property name="dao" ref="messageDao"></property>
+	</bean>
+</beans>

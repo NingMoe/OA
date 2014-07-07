@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">root</property>
+		<property name="hibernate.connection.url">jdbc:mysql://192.168.9.103:3306/test</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.show_sql">true</property>
+
+		<mapping resource="com/oa/entity/Accessoryfile.hbm.xml" />
+		<mapping resource="com/oa/entity/Branchinfo.hbm.xml" />
+		<mapping resource="com/oa/entity/Departinfo.hbm.xml" />
+		<mapping resource="com/oa/entity/Fileinfo.hbm.xml" />
+		<mapping resource="com/oa/entity/Filetypeinfo.hbm.xml" />
+		<mapping resource="com/oa/entity/Loginlog.hbm.xml" />
+		<mapping resource="com/oa/entity/Manualsign.hbm.xml" />
+		<mapping resource="com/oa/entity/Meetinginfo.hbm.xml" />
+		<mapping resource="com/oa/entity/Message.hbm.xml" />
+		<mapping resource="com/oa/entity/Messagetouser.hbm.xml" />
+		<mapping resource="com/oa/entity/Messagetype.hbm.xml" />
+		<mapping resource="com/oa/entity/Mynote.hbm.xml" />
+		<mapping resource="com/oa/entity/Operatelog.hbm.xml" />
+		<mapping resource="com/oa/entity/Precontract.hbm.xml" />
+		<mapping resource="com/oa/entity/Readcommonmessage.hbm.xml" />
+		<mapping resource="com/oa/entity/Roleinfo.hbm.xml" />
+		<mapping resource="com/oa/entity/Roleright.hbm.xml" />
+		<mapping resource="com/oa/entity/Schedule.hbm.xml" />
+		<mapping resource="com/oa/entity/Sysfun.hbm.xml" />
+		<mapping resource="com/oa/entity/Userinfo.hbm.xml" />
+		<mapping resource="com/oa/entity/Userstate.hbm.xml" />
+		<mapping resource="com/oa/entity/Worktime.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

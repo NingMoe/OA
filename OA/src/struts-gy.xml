@@ -1,0 +1,337 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+
+
+	<!-- 角色管理 -->
+	<package name="role" namespace="/role" extends="json-default">
+
+		<default-class-ref class="roleAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.roleId,
+					rows\[\d+\]\.roleName,
+					rows\[\d+\]\.roleDesc
+				</param>
+			</result>
+		</action>
+		<action name="add" method="add"></action>
+		<action name="update" method="update"></action>
+		<action name="remove" method="remove"></action>
+
+		<action name="sysfunAction_getAllTreeNodeByRole" class="sysfunAction"
+			method="getAllTreeNodeByRole">
+			<result name="success" type="json">
+				<param name="root">trees</param>
+			</result>
+		</action>
+
+
+		<action name="sysfunAction_authorizeRole" class="sysfunAction"
+			method="authorizeRole">
+			<result name="success" type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+
+	</package>
+
+
+	<!-- 登录日志 -->
+	<package name="loginlog" namespace="/loginlog" extends="json-default">
+
+		<default-class-ref class="logAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.loginId,
+					rows\[\d+\]\.userinfo\.userName,
+					rows\[\d+\]\.loginTime,
+					rows\[\d+\]\.loginUserIp,
+					rows\[\d+\]\.ifSuccess,
+					rows\[\d+\]\.loginDesc
+				</param>
+			</result>
+		</action>
+
+
+
+		<action name="remove" method="remove"></action>
+
+		<action name="deleteAll" method="deleteAll">
+			<result>
+
+			</result>
+		</action>
+
+
+		<action name="search" method="search">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.loginId,
+					rows\[\d+\]\.userinfo\.userName,
+					rows\[\d+\]\.loginTime,
+					rows\[\d+\]\.loginUserIp,
+					rows\[\d+\]\.ifSuccess,
+					rows\[\d+\]\.loginDesc
+				</param>
+			</result>
+		</action>
+
+	</package>
+
+	<!-- 操作日志 -->
+	<package name="operatelog" namespace="/operatelog" extends="json-default">
+
+		<default-class-ref class="operateAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.operateId,
+					rows\[\d+\]\.userinfo\.userName,
+					rows\[\d+\]\.operateName,
+					rows\[\d+\]\.operateDesc,
+					rows\[\d+\]\.operateTime
+				</param>
+			</result>
+		</action>
+
+
+
+		<action name="remove" method="remove"></action>
+
+		<action name="Search" method="Search">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.operateId,
+					rows\[\d+\]\.userinfo\.userName,
+					rows\[\d+\]\.operateName,
+					rows\[\d+\]\.operateDesc,
+					rows\[\d+\]\.operateTime
+				</param>
+			</result>
+		</action>
+
+	</package>
+
+
+	<!-- 考勤历史 -->
+	<package name="history" namespace="/history" extends="json-default">
+
+		<default-class-ref class="historyAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.signId,
+					rows\[\d+\]\.userinfo\.userName,
+					rows\[\d+\]\.userinfo\.departId,
+					rows\[\d+\]\.signTime,
+					rows\[\d+\]\.signTag,
+					rows\[\d+\]\.signDesc,
+					rows\[\d+\]\.departName,
+					rows\[\d+\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="userinfoAction_showAllDepart" method="showAllDepart"
+			class="userinfoAction">
+			<result type="json">
+				<param name="root">departinfos</param>
+				<param name="includeProperties">
+					\[\d+\]\.departId,
+					\[\d+\]\.departName
+				</param>
+			</result>
+		</action>
+		<action name="scheduleAction_loadBranch" method="loadBranch"
+			class="scheduleAction">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="scheduleAction_loadDepart" class="scheduleAction"
+			method="loadDepart">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+	</package>
+
+	<!-- 考勤统计 -->
+	<package name="workTime" namespace="/workTime" extends="json-default">
+
+		<default-class-ref class="workTimeAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.signId,
+					rows\[\d+\]\.userinfo\.userName,
+					rows\[\d+\]\.userinfo\.departId,
+					rows\[\d+\]\.signTime,
+					rows\[\d+\]\.signTag,
+					rows\[\d+\]\.signDesc,
+					rows\[\d+\]\.departName,
+					rows\[\d+\]\.branchName
+				</param>
+			</result>
+		</action>
+		<action name="scheduleAction_loadBranch" method="loadBranch"
+			class="scheduleAction">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="scheduleAction_loadDepart" class="scheduleAction"
+			method="loadDepart">
+			<result name="success" type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					dates\[\d+\]\.beginTime,
+					branchInfos\[\d+\]\.branchId,
+					branchInfos\[\d+\]\.branchName,
+					departinfos\[\d+\]\.departId,
+					departinfos\[\d+\]\.departName,
+					total,
+					rows\[\d+\]\.scheduleId,
+					rows\[\d+\]\.address,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.meetinginfo\.meetingName,
+					rows\[\d+\]\.meetinginfo\.meetingId,
+					rows\[\d+\]\.schContent,
+					rows\[\d+\]\.createTime,
+					\[\d\]\.branchId,
+					\[\d\]\.branchName
+				</param>
+			</result>
+		</action>
+	</package>
+
+	<package name="manual" namespace="/manual" extends="json-default">
+		<default-class-ref class="signAction" />
+		<action name="add_input" method="add_input">
+			<result type="json">
+				<param name="root">datas</param>
+			</result>
+		</action>
+		<action name="add_output" method="add_output">
+			<result type="json">
+				<param name="root">datas</param>
+			</result>
+		</action>
+	</package>
+
+	<!--消息传递 -->
+	<package name="message" namespace="/message" extends="json-default">
+
+		<default-class-ref class="messageAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.messageId,
+					rows\[\d+\]\.title,
+					rows\[\d+\]\.messagetype,
+					rows\[\d+\]\.content,
+					rows\[\d+\]\.UserId,
+					rows\[\d+\]\fromUserId.,
+					rows\[\d+\]\.beginTime,
+					rows\[\d+\]\.endTime,
+					rows\[\d+\]\.recordTime
+				</param>
+			</result>
+		</action>
+		<action name="add" method="add"></action>
+		<action name="update" method="update"></action>
+		<action name="remove" method="remove"></action>
+	</package>
+</struts>

@@ -1,0 +1,204 @@
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+
+	<!-- 机构管理 -->
+	<package name="branch" namespace="/branch" extends="json-default">
+
+		<default-class-ref class="branchAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="excludeProperties">rows\[\d+\]\.departinfos</param>
+			</result>
+		</action>
+
+		<action name="add" method="add"></action>
+
+		<action name="remove" method="remove">
+			<result type="json">
+				<param name="enumAsBean">true</param>
+				<param name="root">msg</param>
+				<param name="inlcudeProperties">msg\.msgtype,msg\.msg</param>
+			</result>
+			<result name="error">/pages/login.jsp</result>
+		</action>
+
+		<action name="update" method="update"></action>
+
+	</package>
+
+
+	<!-- 部门管理 -->
+	<package name="depart" namespace="/depart" extends="json-default">
+
+		<default-class-ref class="departAction" />
+
+		<action name="show" method="show">
+			<result type="json">
+				<param name="includeProperties">depart\.departName</param>
+			</result>
+		</action>
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.departId,
+					rows\[\d+\]\.departName,
+					rows\[\d+\]\.connectTelNo,
+					rows\[\d+\]\.connectMobileTelNo,
+					rows\[\d+\]\.faxes,
+					rows\[\d+\]\.userinfo\.userId,
+					rows\[\d+\]\.userinfo\.userName,
+					rows\[\d+\]\.branchinfo\.branchId,
+					rows\[\d+\]\.branchinfo\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="addOrUpdate" method="addOrUpdate">
+			<result name="none"></result>
+		</action>
+
+		<action name="remove" method="remove">
+			<result type="json">
+				<param name="enumAsBean">true</param>
+				<param name="root">msg</param>
+				<param name="inlcudeProperties">msg\.msgtype,msg\.msg</param>
+			</result>
+			<result name="error">/pages/login.jsp</result>
+		</action>
+
+		<action name="addBeforeGetBranch" method="addBefore">
+			<result type="json">
+				<param name="root">branchinfos</param>
+				<param name="includeProperties">
+					\[\d+\]\.branchId,
+					\[\d+\]\.branchName
+				</param>
+			</result>
+		</action>
+
+		<action name="showEmployeeTree" method="showEmployeeTree">
+			<result type="json">
+				<param name="root">staffTree</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+
+		<action name="checkDepartName" method="checkDepartName">
+			<result type="json">
+				<param name="root">exists</param>
+			</result>
+		</action>
+
+	</package>
+	
+	<!-- 员工管理 -->
+	<package name="user" namespace="/user" extends="json-default">
+
+		<default-class-ref class="userinfoAction" />
+
+		<action name="showPage" method="showPage">
+			<result type="json">
+				<param name="root">datas</param>
+				<param name="includeProperties">
+					total,
+					rows\[\d+\]\.userId,
+					rows\[\d+\]\.userName,
+					rows\[\d+\]\.gender,
+					rows\[\d+\]\.passWord,
+					rows\[\d+\]\.departId,
+					rows\[\d+\]\.userstate\.userStateId,
+					rows\[\d+\]\.userstate\.userStateName,
+					rows\[\d+\]\.roleinfos\[\d+\]\.roleId,
+					rows\[\d+\]\.roleinfos\[\d+\]\.roleName,
+					rows\[\d+\]\.avatarFile\.filePath
+				</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+		</action>
+
+		<action name="show" method="show">
+			<result></result>
+		</action>
+
+		<action name="logout" method="logout">
+			<result></result>
+		</action>
+
+		<action name="modifyPwd" method="modifyPwd">
+			<result type="json">
+				<param name="root">msg</param>
+			</result>
+		</action>
+
+		<action name="nameExists" method="nameExists">
+			<result type="json">
+				<param name="root">success</param>
+			</result>
+		</action>
+
+		<action name="addOrUpdate" method="addOrUpdate">
+			<!-- 把用户头像交给FileinfoAction去处理 -->
+			<result></result>
+			<result name="chain" type="chain">
+				<param name="actionName">uploadAvatar</param>
+				<param name="namespace">/doc</param>
+			</result>
+			<result name="input">/error.jsp</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">1024*1024</param>
+				<param name="allowedTypes">image/*</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+
+		<action name="remove" method="remove"></action>
+
+		<action name="showAllDepart" method="showAllDepart">
+			<result type="json">
+				<param name="root">departinfos</param>
+				<param name="includeProperties">
+					\[\d+\]\.departId,
+					\[\d+\]\.departName
+				</param>
+			</result>
+		</action>
+
+		<action name="showAllRole" method="showAllRole">
+			<result type="json">
+				<param name="root">roleinfos</param>
+				<param name="includeProperties">
+					\[\d+\]\.roleId,
+					\[\d+\]\.roleName
+				</param>
+			</result>
+		</action>
+
+		<action name="showAllState" method="showAllState">
+			<result type="json">
+				<param name="root">userStates</param>
+				<param name="includeProperties">
+					\[\d+\]\.userStateId,
+					\[\d+\]\.userStateName
+				</param>
+			</result>
+		</action>
+
+		<action name="ajaxLogin" method="ajaxLogin">
+			<result name="root" type="json">
+				<param name="root">success</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

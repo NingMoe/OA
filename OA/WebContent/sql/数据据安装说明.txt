@@ -1,0 +1,1 @@
+1. 安装数据库时，请使用 "test_modified.sql"。使用数据线MySQL
